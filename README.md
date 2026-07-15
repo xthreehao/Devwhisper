@@ -130,11 +130,34 @@ Developer hears the response
 
 8. Update Vapi tool Server URL with your ngrok URL plus `/webhook`
 
+---
 
+## 🐳 Run with Docker
+
+1. Build the Docker image: `docker build -t devwhisper .`
+2. Create a `.env` file with your API keys (same as above).
+3. Run the container: `docker run -p 8000:8000 --env-file .env devwhisper`
+4. Expose publicly using ngrok and update your Vapi tool Server URL.
 
 ---
 
 
+
+## 🧪 Testing Locally
+
+You can test DevWhisper's conversation flow directly from your terminal without using Vapi or making voice calls by using the standalone test client. This is useful for local development and debugging.
+
+1. Ensure your FastAPI server is running: `uvicorn main:app --reload --port 8000`
+2. Run the test client in interactive mode:
+   ```bash
+   python test_client.py
+   ```
+3. Or pass a one-off query:
+   ```bash
+   python test_client.py --query "What does the preprocess function do?"
+   ```
+
+---
 
 ## 📁 Project Structure
 
