@@ -209,8 +209,3 @@ async def vapi_webhook(request: Request):
 @app.get("/health")
 def health():
     return {"status": "ok", "message": "DevWhisper is running"}
-
-@app.get("/history/{session_id}")
-def get_history(session_id: str):
-    history = get_memory(session_id)
-    return JSONResponse({"session_id": session_id, "history": history})
