@@ -1,9 +1,28 @@
-function App() {
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import HistoryPanel from './components/HistoryPanel.jsx'
+
+function Home() {
   return (
-    <div className="app">
+    <>
       <h1>DevWhisper</h1>
       <p>Voice-native developer experience agent</p>
-    </div>
+      <p>
+        <Link to="/history">View History</Link>
+      </p>
+    </>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/history" element={<HistoryPanel />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
 }
 
