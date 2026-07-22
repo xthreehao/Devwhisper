@@ -210,7 +210,7 @@ async def vapi_webhook(request: Request):
 def health():
     return {"status": "ok", "message": "DevWhisper is running"}
 
-@app.get("/history/{session_id}")
+@app.get("/history?session_id={session_id}")
 def get_history(session_id: str):
     """Endpoint to retrieve conversation history for a given session."""
     history = get_memory(session_id)

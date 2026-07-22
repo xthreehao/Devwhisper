@@ -67,7 +67,7 @@ function HistoryPanel() {
     let active = true
 
     function fetchHistory() {
-      fetch(`/history/${encodeURIComponent(selectedSession)}`)
+      fetch(`/history?session_id=${encodeURIComponent(selectedSession)}`)
         .then(res => res.json())
         .then(data => {
           if (!active) return
