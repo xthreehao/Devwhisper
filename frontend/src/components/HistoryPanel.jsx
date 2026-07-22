@@ -17,10 +17,12 @@ function HistoryPanel() {
     return raw.split('\n\n').filter(Boolean).map(block => {
       const lines = block.split('\n')
       const userLine = lines.find(l => l.startsWith('User: '))
-      const asstLine = lines.find(l => l.startsWith('Assistant: '))
+      const asstIndex = lines.findIndex(l => l.startsWith('Assistant: '))
       return {
         query: userLine ? userLine.slice(6) : '',
-        response: asstLine ? asstLine.slice(11) : '',
+        response: asstIndex !== -1
+          ? lines.slice(asstIndex).map(l => l.startsWith('Assistant: ') ? l.slice(11) : l).join('\n').trim()
+          : '',
       }
     })
   }
