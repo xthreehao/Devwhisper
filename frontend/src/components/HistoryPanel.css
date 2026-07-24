@@ -170,6 +170,73 @@
   margin: 0 0 24px 0;
 }
 
+/* Header actions — share conversation link */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.share-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.share-button:hover {
+  background: var(--accent-bg);
+  color: var(--accent);
+  border-color: var(--accent-border);
+}
+
+.share-button:active {
+  transform: scale(0.96);
+}
+
+.share-feedback {
+  font-size: 13px;
+  color: var(--accent);
+  animation: fadeIn 0.2s ease;
+}
+
+/* Share exchange button on each history item */
+.share-exchange-btn {
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-left: auto;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+}
+
+.share-exchange-btn:hover {
+  background: var(--accent-bg);
+  color: var(--accent);
+  border-color: var(--accent-border);
+}
+
+.share-exchange-btn:active {
+  transform: scale(0.95);
+}
+
 /* Session selector */
 .session-selector {
   margin-bottom: 20px;
@@ -277,6 +344,7 @@
 .history-item .response {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .history-item .response-label {
@@ -292,6 +360,7 @@
 }
 
 .history-item .response-text {
+  flex: 1 1 200px;
   font-size: 15px;
   line-height: 1.6;
   color: var(--text);
@@ -387,12 +456,13 @@
     align-self: flex-start;
   }
 
-  .history-item .query-text {
+  .history-item .response-text {
     font-size: 14px;
   }
 
-  .history-item .response-text {
-    font-size: 14px;
+  .share-exchange-btn {
+    align-self: flex-end;
+    margin-left: 0;
   }
 
   .history-list {
@@ -416,5 +486,12 @@
 
   .history-item .response-label {
     background: rgba(16, 185, 129, 0.15);
+  }
+
+  .share-button:hover,
+  .share-exchange-btn:hover {
+    background: rgba(192, 132, 252, 0.15);
+    color: #c084fc;
+    border-color: rgba(192, 132, 252, 0.5);
   }
 }
